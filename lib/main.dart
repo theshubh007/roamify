@@ -15,7 +15,7 @@ import 'package:roamify/Utils/Shpref_service.dart';
 
 import 'API_Files/Token_manager.dart';
 import 'Auth_Files/Auth_binding.dart';
-import 'Auth_Files/Custom_Stepper.dart';
+import 'Auth_Files/SignUp_page.dart';
 import 'User_Files/OnBoarding/OnBoardingbinding.dart';
 import 'User_Files/Profile_Files/User_data_page.dart';
 import 'User_Files/TourDetail_Files/Tour_Detail_page.dart';
@@ -82,6 +82,7 @@ class _MyAppState extends State<MyApp> {
     bool authstatus = await Shpref_Service.getauthstatus();
     if (!authstatus) {
       return "/onboarding";
+      // return "/signup";
     } else {
       return "/rootpage";
     }

@@ -95,6 +95,7 @@ class Loginpage extends GetWidget<AuthController> {
                               onPressed: () async {
                                 if (controller.formKey.currentState!
                                     .validate()) {
+                                  FocusScope.of(context).unfocus();
                                   await controller.login();
                                 }
                               },

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -149,7 +151,22 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       color: Colors.blue,
                       onPressed: () {
                         if (controller.currentIndex.value == 2) {
-                          Get.offAllNamed('/signup');
+                          //write code to run circular progress indicator for 2 seconds
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            },
+                          );
+                          Timer(const Duration(seconds: 1), () {
+                            // Close the progress indicator dialog
+                            Navigator.of(context, rootNavigator: true).pop();
+
+                            Get.offAllNamed('/signup');
+                          });
                         } else {
                           controller.updateIndex();
                         }
@@ -165,20 +182,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         ),
                       ),
                     ),
-                    // RippleButton(
-                    //   "Amber Button",
-                    //   border: RippleButtonBorder(
-                    //     radius: BorderRadius.circular(10),
-                    //     // borderColor: Colors.amber,
-                    //   ),
-                    //   style: RippleButtonStyle(
-                    //     height: ht * 0.07,
-                    //     width: wt,
-                    //   ),
-                    //   type: RippleButtonType.BLUE_TELEGRAM,
-                    //   padding: const EdgeInsets.all(16),
-                    //   onPressed: () {},
-                    // ),
+                   
 
                     20.height,
                     Row(
