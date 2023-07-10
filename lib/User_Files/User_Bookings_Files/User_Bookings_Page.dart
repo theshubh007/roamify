@@ -41,7 +41,7 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: ColorConstant.black,
+      backgroundColor: ColorConstant.whiteA700,
       appBar: AppBar(
         backgroundColor: ColorConstant.black,
         // automaticallyImplyLeading: false,
@@ -89,7 +89,7 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
                                       (BuildContext context, int index) {
                                     Tourdto currdto = tourList[index];
                                     return InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         Get.to(
                                           () => Tour_Details(),
                                           arguments: {
@@ -104,7 +104,8 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
                                         location: currdto.location,
                                         days: currdto.days,
                                         tourimage: currdto.tourProfileImage,
-                                        price: currdto.chargePerPerson.toString(),
+                                        price:
+                                            currdto.chargePerPerson.toString(),
                                       ),
                                     );
                                   });
@@ -137,12 +138,12 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
                                     Tourdto currdto = tourList[index];
                                     return InkWell(
                                       onTap: () {
-                                       Get.to(
+                                        Get.to(
                                           () => Tour_Details(),
                                           arguments: {
                                             "admin": true,
                                             "tourdto": tourList[index],
-                                              "booked": false,
+                                            "booked": false,
                                           },
                                         );
                                       },
