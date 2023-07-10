@@ -14,7 +14,7 @@ class ColorConstant {
   static Color graylight = fromHex('#f3f2f2');
   // static Color whitebg = fromHex('#ffffff');
   static Color whitebg = fromHex('#edf6f9');
-  // static Color grayl = fromHex('#edf6f9');
+  static Color gray1 = fromHex('#495057');
 
   static Color black = fromHex('#121212');
   static Color blue = fromHex('#0d71e9');
