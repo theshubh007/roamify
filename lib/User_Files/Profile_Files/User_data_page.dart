@@ -16,7 +16,7 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
     double wt = Get.width;
     return SafeArea(
         child: Scaffold(
-      backgroundColor: ColorConstant.whiteA700,
+      backgroundColor: ColorConstant.black,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -87,7 +87,7 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              18.height,
+                              15.height,
                               Text("Name",
                                   style: TextStyle(
                                     fontFamily: 'Inter',
@@ -95,103 +95,167 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
                                     color: ColorConstant.whiteA700,
                                     fontWeight: FontWeight.bold,
                                   )),
-                              AppTextField(
-                                  controller: controller.nameController,
-                                  focus: controller.nameFocus,
-                                  nextFocus: controller.phoneFocus,
-                                  textStyle: primaryTextStyle(),
-                                  textFieldType: TextFieldType.NAME,
-                                  decoration: inputDecoration(
-                                    
-                                      context: context,
-                                      labelText: "Name",
-                                      hintText: "Enter Name")),
-                              18.height,
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0,
+                                      blurRadius: 15,
+                                      offset: const Offset(
+                                          0, 15), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: AppTextField(
+                                    controller: controller.nameController,
+                                    focus: controller.nameFocus,
+                                    nextFocus: controller.phoneFocus,
+                                    textStyle: primaryTextStyle(),
+                                    textFieldType: TextFieldType.NAME,
+                                    decoration: inputDecoration(
+                                        context: context,
+                                        labelText: "Name",
+                                        hintText: "Enter Name")),
+                              ),
+                              15.height,
                               Text("Phone",
                                   style: TextStyle(
                                     fontFamily: 'Inter',
-                                    color: ColorConstant.whiteA700,
+                                    color: ColorConstant.black,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   )),
-                              AppTextField(
-                                controller: controller.phoneController,
-                                focus: controller.phoneFocus,
-                                nextFocus: controller.cityFocus,
-                                textStyle: primaryTextStyle(),
-                                textFieldType: TextFieldType.PHONE,
-                                decoration: inputDecoration(
-                                    context: context,
-                                    labelText: "Phone",
-                                    hintText: "Enter your phone number"),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Please enter your phone number";
-                                  } else if (value.length < 10 ||
-                                      value.length > 10) {
-                                    return "Please enter a valid phone number";
-                                  }
-                                  return null;
-                                },
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0,
+                                      blurRadius: 15,
+                                      offset: const Offset(
+                                          0, 15), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: AppTextField(
+                                  controller: controller.phoneController,
+                                  focus: controller.phoneFocus,
+                                  nextFocus: controller.cityFocus,
+                                  textStyle: primaryTextStyle(),
+                                  textFieldType: TextFieldType.PHONE,
+                                  decoration: inputDecoration(
+                                      context: context,
+                                      labelText: "Phone",
+                                      hintText: "Enter your phone number"),
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return "Please enter your phone number";
+                                    } else if (value.length < 10 ||
+                                        value.length > 10) {
+                                      return "Please enter a valid phone number";
+                                    }
+                                    return null;
+                                  },
+                                ),
                               ),
-                              18.height,
+                              15.height,
                               Text("City Name",
                                   style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 20,
-                                    color: ColorConstant.whiteA700,
+                                    color: ColorConstant.black,
                                     fontWeight: FontWeight.bold,
                                   )),
-                              AppTextField(
-                                controller: controller.cityController,
-                                focus: controller.cityFocus,
-                                nextFocus: controller.countryFocus,
-                                textStyle: primaryTextStyle(),
-                                textFieldType: TextFieldType.NAME,
-                                decoration: inputDecoration(
-                                    context: context,
-                                    labelText: "City name name",
-                                    hintText: "Enter City name"),
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0,
+                                      blurRadius: 15,
+                                      offset: const Offset(
+                                          0, 15), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: AppTextField(
+                                  controller: controller.cityController,
+                                  focus: controller.cityFocus,
+                                  nextFocus: controller.countryFocus,
+                                  textStyle: primaryTextStyle(),
+                                  textFieldType: TextFieldType.NAME,
+                                  decoration: inputDecoration(
+                                      context: context,
+                                      labelText: "City name name",
+                                      hintText: "Enter City name"),
+                                ),
                               ),
-                              18.height,
+                              15.height,
                               Text("Country Name",
                                   style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 20,
-                                    color: ColorConstant.whiteA700,
+                                    color: ColorConstant.black,
                                     fontWeight: FontWeight.bold,
                                   )),
-                              AppTextField(
-                                controller: controller.countryController,
-                                focus: controller.countryFocus,
-                                nextFocus: controller.pinFocus,
-                                textStyle: primaryTextStyle(),
-                                textFieldType: TextFieldType.NAME,
-                                decoration: inputDecoration(
-                                    context: context,
-                                    labelText: "Country name",
-                                    hintText: "Enter Country name"),
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0,
+                                      blurRadius: 15,
+                                      offset: const Offset(
+                                          0, 15), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: AppTextField(
+                                  controller: controller.countryController,
+                                  focus: controller.countryFocus,
+                                  nextFocus: controller.pinFocus,
+                                  textStyle: primaryTextStyle(),
+                                  textFieldType: TextFieldType.NAME,
+                                  decoration: inputDecoration(
+                                      context: context,
+                                      labelText: "Country name",
+                                      hintText: "Enter Country name"),
+                                ),
                               ),
                               14.height,
                               Text("Pincode",
                                   style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 20,
-                                    color: ColorConstant.whiteA700,
+                                    color: ColorConstant.black,
                                     fontWeight: FontWeight.bold,
                                   )),
-                              AppTextField(
-                                controller: controller.pincodeController,
-                                focus: controller.pinFocus,
-                                textStyle: primaryTextStyle(),
-                                textFieldType: TextFieldType.NUMBER,
-                                decoration: inputDecoration(
-                                    // color: ColorConstant.darkblueshade,
-                                    context: context,
-                                    labelText: "Enter your pincode",
-                                    hintText: "Enter your pincode"),
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      spreadRadius: 0,
+                                      blurRadius: 15,
+                                      offset: const Offset(
+                                          0, 15), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: AppTextField(
+                                  controller: controller.pincodeController,
+                                  focus: controller.pinFocus,
+                                  textStyle: primaryTextStyle(),
+                                  textFieldType: TextFieldType.NUMBER,
+                                  decoration: inputDecoration(
+                                      // color: ColorConstant.darkblueshade,
+                                      context: context,
+                                      labelText: "Enter your pincode",
+                                      hintText: "Enter your pincode"),
+                                ),
                               ),
-                              18.height,
+                              15.height,
                               Center(
                                 child: CustomElevatedButton(
                                   height: ht * 0.07,
