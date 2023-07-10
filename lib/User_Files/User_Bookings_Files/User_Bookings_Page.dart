@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:roamify/User_Files/User_Bookings_Files/User_booking_controller.dart';
 import 'package:roamify/Utils/Color_const.dart';
 
@@ -41,11 +42,11 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: ColorConstant.whiteA700,
+      backgroundColor: ColorConstant.whitebg.withOpacity(0.5),
       appBar: AppBar(
         backgroundColor: ColorConstant.black,
         // automaticallyImplyLeading: false,
-        title: const Text("User_Bookings_Page"),
+        title: const Text("Booking Page"),
       ),
       body: DefaultTabController(
         length: _tabs.length,
@@ -54,11 +55,15 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
             Container(
               color: Colors.black, // Set the background color of TabBar
               child: TabBar(
+                indicatorColor: Colors.blue,
+                indicatorWeight: 3.5,
+                dividerColor: Colors.white,
                 labelColor: Colors.white,
                 tabs: _tabs,
                 controller: _tabController,
               ),
             ),
+            12.height,
             Expanded(
               child: TabBarView(
                 controller: _tabController,
@@ -147,13 +152,17 @@ class _User_Bookings_PageState extends State<User_Bookings_Page>
                                           },
                                         );
                                       },
-                                      child: TourRowCardTileAdmin(
-                                        tourname: currdto.tourName,
-                                        location: currdto.location,
-                                        days: currdto.days,
-                                        tourimage: currdto.tourProfileImage,
-                                        price:
-                                            currdto.chargePerPerson.toString(),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8.0, right: 8, top: 2),
+                                        child: TourRowCardTileAdmin(
+                                          tourname: currdto.tourName,
+                                          location: currdto.location,
+                                          days: currdto.days,
+                                          tourimage: currdto.tourProfileImage,
+                                          price: currdto.chargePerPerson
+                                              .toString(),
+                                        ),
                                       ),
                                     );
                                   });

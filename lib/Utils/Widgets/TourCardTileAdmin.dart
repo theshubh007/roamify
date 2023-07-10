@@ -37,6 +37,14 @@ class TourRowCardTileAdmin extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.only(bottom: 24),
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.4),
+            spreadRadius: 0,
+            blurRadius: 18,
+            offset: const Offset(0, 18), // changes position of shadow
+          ),
+        ],
         color: ColorConstant.whiteA700,
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15),
