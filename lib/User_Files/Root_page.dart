@@ -34,9 +34,9 @@ class _RootPageState extends State<RootPage> {
       body: pages[currindex],
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: ColorConstant.darkbg,
+          backgroundColor: ColorConstant.grayblue,
           selectedItemColor: ColorConstant.greenteal,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: Colors.white,
           showUnselectedLabels: true,
           showSelectedLabels: true,
           onTap: ontap,

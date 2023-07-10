@@ -49,6 +49,7 @@ class Create_tour_controller extends GetxController {
   final RxList<File> singleimageList = RxList<File>();
   // RxList<String> singlebase64 = RxList<String>();
   File? singleimage;
+  String singleimagebase64 = "";
   Future<void> picksingleimage() async {
     try {
       List<Asset> images = await MultipleImagesPicker.pickImages(
@@ -65,7 +66,7 @@ class Create_tour_controller extends GetxController {
       );
       if (images.isNotEmpty) {
         List<File> files = [];
-        List<String> base64List = [];
+        // List<String> base64List = [];
         for (Asset image in images) {
           final data = await image.getByteData();
           final file =
@@ -74,12 +75,12 @@ class Create_tour_controller extends GetxController {
           files.add(file);
           singleimage = file;
 
-          String base64Image = base64Encode(file.readAsBytesSync());
-          base64List.add(base64Image);
+          singleimagebase64 = base64Encode(file.readAsBytesSync());
+          // base64List.add(base64Image);
         }
 
-        singleimageList.value = files;
-        base64ImagesList.value = base64List;
+        // singleimageList.value = files;
+        // base64ImagesList.value = base64List;
       }
     } catch (e) {
       print(e);
@@ -170,16 +171,17 @@ class Create_tour_controller extends GetxController {
     for (int i = 0; i < place_list.length; i++) {
       place_list[i].place_image = compressedBase64List[i];
     }
-    String singlebase64 = "";
-    if (singleimage != null) {
-      singlebase64 = base64Encode(singleimage!.readAsBytesSync());
-    }
+    String singleprofilebase64image = singleimagebase64;
 
     String formattedlastDate =
         DateFormat("yyyy-MM-dd'T'HH:mm:ss").format(selectedDate);
     String formattedstartDate =
         DateFormat("yyyy-MM-dd'T'HH:mm:ss").format(tourstartselectedDate);
-    String compressprofile = await compressAndEncodeImage(singlebase64);
+    String compressprofile = "";
+    if (singleprofilebase64image != "") {
+      compressprofile = await compressAndEncodeImage(singleprofilebase64image);
+    }
+
     var tourinfo = {
       "tourName": tourname_controller.text.trim(),
       "location": tourlocation_controller.text.trim(),
@@ -195,6 +197,8 @@ class Create_tour_controller extends GetxController {
     };
     String uid = userController.userDto.value.Uid.toString();
     print(uid);
+    print(uid);
+    print(uid);
     var tourFinalSchema = {
       "userId": uid,
       "packageInfo": tourinfo,
@@ -203,10 +207,11 @@ class Create_tour_controller extends GetxController {
     return tourFinalSchema;
   }
 
-  Future<void> Create_tour_package() async {
+  Future<void> Create_tour_package(BuildContext context) async {
     final ApiService apiService = ApiService();
     try {
       var tourschema = await create_final_Tour_schema();
+      print(tourschema);
       final response =
           await apiService.post(ApiUrls.create_tour_url, tourschema);
       print(response.statusCode);
@@ -216,6 +221,8 @@ class Create_tour_controller extends GetxController {
             snackPosition: SnackPosition.TOP,
             backgroundColor: Colors.green,
             colorText: Colors.white);
+        Get.toNamed("/rootpage");
+        Navigator.of(context, rootNavigator: true).pop();
       } else {
         Get.snackbar(
           "Network Problem",
@@ -224,6 +231,7 @@ class Create_tour_controller extends GetxController {
           backgroundColor: Colors.red,
           colorText: Colors.white,
         );
+        Navigator.of(context, rootNavigator: true).pop();
       }
     } catch (e) {
       print(e);

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -79,7 +77,9 @@ class HomepageController extends GetxController {
               .map((json) => Tourdto.fromJson(json))
               .toList();
           print('Tour List: $tourList');
-          cachetourList.value = tourList;
+          /////////////////////////////////////////////
+          /////////////////////////////////
+          // cachetourList.value = tourList;
           return tourList;
         } else {
           throw Exception('API Error: ${responseData['message']}');

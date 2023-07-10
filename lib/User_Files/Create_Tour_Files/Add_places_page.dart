@@ -48,7 +48,7 @@ class Add_place_page extends GetWidget<Create_tour_controller> {
                         ),
                         IconButton(
                             onPressed: () {
-                              tcontroller.Create_tour_package();
+                              tcontroller.Create_tour_package(context);
                             },
                             icon: const Icon(Icons.check, color: Colors.white)),
                       ],
@@ -212,10 +212,24 @@ class Add_place_page extends GetWidget<Create_tour_controller> {
                             return;
                           }
                           tcontroller.isloading.value = true;
-                          await tcontroller.Create_tour_package().then((value) {
-                            tcontroller.isloading.value = false;
-                            Get.toNamed("/rootpage");
-                          });
+                          // await tcontroller.Create_tour_package().then((value) {
+                          //   tcontroller.isloading.value = false;
+                          //   Get.toNamed("/rootpage");
+                          // });
+                          
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            },
+                          );
+                           await tcontroller.Create_tour_package(context);
+                            
+                           
+                        
                         },
                         child: Text("Finalize the Tour",
                             style: TextStyle(

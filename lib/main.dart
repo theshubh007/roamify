@@ -105,9 +105,11 @@ class _MyAppState extends State<MyApp> {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             translations: LocaleString(),
+           
             locale: const Locale('en', 'US'),
             theme: ThemeData(
               primarySwatch: Colors.blue,
+              fontFamily: 'Poppins'
             ),
             home: Container(), // Replace Container() with your home widget
             initialRoute: snapshot.data!,

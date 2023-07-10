@@ -12,6 +12,9 @@ class ColorConstant {
   static Color graydark = fromHex('#5d5c5d');
   static Color graydarkshade = fromHex('#1f1f1f');
   static Color graylight = fromHex('#f3f2f2');
+  // static Color whitebg = fromHex('#ffffff');
+  static Color whitebg = fromHex('#edf6f9');
+  // static Color grayl = fromHex('#edf6f9');
 
   static Color black = fromHex('#121212');
   static Color blue = fromHex('#0d71e9');

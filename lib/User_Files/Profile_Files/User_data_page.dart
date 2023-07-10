@@ -16,7 +16,7 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
     double wt = Get.width;
     return SafeArea(
         child: Scaffold(
-      backgroundColor: ColorConstant.darkbluebg,
+      backgroundColor: ColorConstant.whiteA700,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -73,12 +73,12 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
               ),
               Container(
                   child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 24, right: 24),
                 child: Form(
                   key: controller.formKey,
                   child: Column(
                     children: [
-                      40.height,
+                      10.height,
 
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -102,6 +102,7 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
                                   textStyle: primaryTextStyle(),
                                   textFieldType: TextFieldType.NAME,
                                   decoration: inputDecoration(
+                                    
                                       context: context,
                                       labelText: "Name",
                                       hintText: "Enter Name")),
@@ -191,20 +192,22 @@ class User_Data_page extends GetWidget<User_datapage_Controller> {
                                     hintText: "Enter your pincode"),
                               ),
                               18.height,
-                              CustomElevatedButton(
-                                height: ht * 0.07,
-                                width: wt,
-                                radius: 10,
-                                onPressed: () async {
-                                  await controller.updateprofile();
-                                },
-                                child: Text("Update Profile",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontSize: 20,
-                                      color: ColorConstant.whiteA700,
-                                      fontWeight: FontWeight.bold,
-                                    )),
+                              Center(
+                                child: CustomElevatedButton(
+                                  height: ht * 0.07,
+                                  width: wt * 0.4,
+                                  radius: 10,
+                                  onPressed: () async {
+                                    await controller.updateprofile();
+                                  },
+                                  child: Text("Update",
+                                      style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 20,
+                                        color: ColorConstant.whiteA700,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                ),
                               )
                             ],
                           ),

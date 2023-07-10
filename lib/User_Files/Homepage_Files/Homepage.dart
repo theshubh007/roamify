@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
         child: Scaffold(
             key: _scaffoldKey,
-            backgroundColor: ColorConstant.black,
+            backgroundColor: ColorConstant.whitebg.withOpacity(0.5),
             drawer: const CustomDrawer(),
             body: SingleChildScrollView(
               child: Padding(
@@ -63,13 +63,13 @@ class _HomePageState extends State<HomePage> {
                                 child: CircularProgressIndicator());
                           } else if (snapshot.hasError) {
                             return const Text('No data found',
-                                style: TextStyle(color: Colors.white));
+                                style: TextStyle(color: Colors.black));
                           } else {
                             return Obx(
                               () => Text(
                                 'Welcome, ${usercontroller.userDto.value.name}',
                                 style: const TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                                           } else if (snapshot.hasError) {
                                             return const Text('No data found',
                                                 style: TextStyle(
-                                                    color: Colors.white));
+                                                    color: Colors.black));
                                           } else {
                                             if (snapshot.data!.isEmpty) {
                                               return const Center(
@@ -183,14 +183,16 @@ class _HomePageState extends State<HomePage> {
                                   18.height,
                                   Container(
                                     // height: ht * 0.15,
-
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(9),
+                                      color: ColorConstant.blue,
+                                    ),
                                     padding: const EdgeInsets.only(
                                         top: 19,
                                         left: 19,
                                         right: 19,
                                         bottom: 19),
                                     width: wt,
-                                    color: ColorConstant.blue,
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -233,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                                             } else if (snapshot.hasError) {
                                               return const Text('No data found',
                                                   style: TextStyle(
-                                                      color: Colors.white));
+                                                      color: Colors.black));
                                             } else {
                                               final tourList = snapshot.data;
 
@@ -289,7 +291,7 @@ class _HomePageState extends State<HomePage> {
         const Text(
           'Explore Amazing Trips',
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         TextButton(
           onPressed: () {
@@ -316,7 +318,7 @@ class _HomePageState extends State<HomePage> {
         const Text(
           'Popular Tours',
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         TextButton(
           onPressed: () {
@@ -345,7 +347,7 @@ class _HomePageState extends State<HomePage> {
         return Container(
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-            color: ColorConstant.graydarkshade,
+            color: ColorConstant.grayblue,
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
@@ -368,7 +370,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               hintText: "Search place you're looking for",
-              hintStyle: const TextStyle(color: Colors.white, fontSize: 15),
+              hintStyle: const TextStyle(color: Colors.white, fontSize: 13),
             ),
           ),
         );
@@ -388,7 +390,7 @@ class _HomePageState extends State<HomePage> {
     //         controller.searchTourPackages(val);
     //       });
     //     },
-    //     style: const TextStyle(color: Colors.white),
+    //     style: const TextStyle(color: Colors.black),
     //     decoration: InputDecoration(
     //         border: InputBorder.none,
     //         prefixIcon: Icon(
@@ -408,7 +410,7 @@ class _HomePageState extends State<HomePage> {
     //           ),
     //         ),
     //         hintText: "Search place you're looking for",
-    //         hintStyle: const TextStyle(color: Colors.white, fontSize: 15)),
+    //         hintStyle: const TextStyle(color: Colors.black, fontSize: 15)),
     //   ),
     // );
   }
@@ -506,7 +508,7 @@ class TourCard extends StatelessWidget {
                         child: Text(
                           '$days days',
                           style: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                           ),
@@ -519,7 +521,7 @@ class TourCard extends StatelessWidget {
                       Text(
                         tourname,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -527,7 +529,7 @@ class TourCard extends StatelessWidget {
                       Text(
                         location,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
@@ -563,7 +565,7 @@ class CustomAppbar extends StatelessWidget {
           },
           icon: const Icon(
             Icons.menu,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         // IconButton(
@@ -572,7 +574,7 @@ class CustomAppbar extends StatelessWidget {
         //   },
         //   icon: const Icon(
         //     Icons.notifications,
-        //     color: Colors.white,
+        //     color: Colors.black,
         //   ),
         // ),
       ],
