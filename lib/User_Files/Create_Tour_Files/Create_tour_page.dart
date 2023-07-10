@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:roamify/User_Files/Create_Tour_Files/Add_places_page.dart';
@@ -17,6 +18,7 @@ class Create_tour_page extends StatefulWidget {
 
 class _Create_tour_pageState extends State<Create_tour_page> {
   Create_tour_controller tcontroller = Get.put(Create_tour_controller());
+  final String assetName = 'assets/icons/map.svg';
   @override
   Widget build(BuildContext context) {
     double wt = MediaQuery.of(context).size.width;
@@ -32,20 +34,33 @@ class _Create_tour_pageState extends State<Create_tour_page> {
                         key: controller.tourformKey,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
                                 height: 80,
                                 decoration:
                                     const BoxDecoration(color: Colors.black),
                                 child: Center(
-                                  child: Text("Create Tour",
-                                      style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 24,
-                                        color: ColorConstant.whiteA700,
-                                        fontWeight: FontWeight.bold,
-                                      )),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    // mainAxisAlignment:
+                                    // MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      SvgPicture.asset(assetName,
+                                          height: 30,
+                                          colorFilter: const ColorFilter.mode(
+                                              Colors.yellow, BlendMode.srcIn),
+                                          semanticsLabel: 'A red up arrow'),
+                                      8.width,
+                                      Text("Create Tour",
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 24,
+                                            color: ColorConstant.whiteA700,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ],
+                                  ),
                                 ),
                               ),
                               12.height,
