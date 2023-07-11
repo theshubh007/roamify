@@ -77,11 +77,12 @@ class _HomePageState extends State<HomePage> {
                           }
                         },
                       ),
-
-                      18.height,
+                      Map_Ui(ht, wt),
+                      5.height,
                       //search bar
                       Searchbar(),
                       18.height,
+
                       Obx(
                         () => controller.resultList.isNotEmpty &&
                                 searchcontroller.text.isNotEmpty
@@ -284,6 +285,16 @@ class _HomePageState extends State<HomePage> {
             )));
   }
 
+  Container Map_Ui(double ht, double wt) {
+    return Container(
+        // color: ColorConstant.lightyellow.withOpacity(0.5),
+        child: Image.asset(
+      "assets/images/Map_line2.png",
+      height: ht * 0.3,
+      width: wt,
+    ));
+  }
+
   Row Explore_Tour_Header() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -300,7 +311,8 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'View All',
             style: TextStyle(
-                color: ColorConstant.greenteal,
+                // color: ColorConstant.greenteal,
+                color: ColorConstant.yellow ,
                 fontSize: 15,
                 fontWeight: FontWeight.bold),
           ),
@@ -327,7 +339,8 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'View All',
             style: TextStyle(
-                color: ColorConstant.greenteal,
+                // color: ColorConstant.greenteal,
+                color: ColorConstant.yellow,
                 fontSize: 15,
                 fontWeight: FontWeight.bold),
           ),
@@ -357,7 +370,8 @@ class _HomePageState extends State<HomePage> {
               border: InputBorder.none,
               prefixIcon: Icon(
                 Icons.search,
-                color: ColorConstant.greenteal,
+                // color: ColorConstant.greenteal,
+                color: ColorConstant.yellow,
               ),
               suffixIcon: IconButton(
                 onPressed: () {
@@ -366,7 +380,8 @@ class _HomePageState extends State<HomePage> {
                 },
                 icon: Icon(
                   Icons.clear,
-                  color: ColorConstant.greenteal,
+                  // color: ColorConstant.greenteal,
+                  color: ColorConstant.yellow,
                 ),
               ),
               hintText: "Search place you're looking for",
@@ -502,7 +517,8 @@ class TourCard extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: ColorConstant.greenteal,
+                          // color: ColorConstant.greenteal,
+                          color: ColorConstant.yellow,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(

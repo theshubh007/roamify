@@ -102,7 +102,8 @@ class TourRowCardTile extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: ColorConstant.greenteal,
+                        color: ColorConstant.yellow,
+                        // color: ColorConstant.greenteal,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
@@ -120,13 +121,14 @@ class TourRowCardTile extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: ColorConstant.greenteal,
+                        // color: ColorConstant.greenteal,
+                        color: ColorConstant.lightyellow,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         '$price Rs',
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
